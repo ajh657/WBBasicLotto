@@ -5,8 +5,6 @@ let Jackpot = false;
 let lottoNumbers = [];
 let highestScore = 0;
 
-console.log(args.toString());
-
 while (!Jackpot) {
   for (let i = 0; i < 7; i++) {
     let randomNumber = getRandomInt(40);
@@ -55,8 +53,7 @@ while (!Jackpot) {
         correctNumbers +
         " correct! It took: " +
         getTimeInYears(timeTaken) +
-        " Years " +
-        lottoNumbers.toString()
+        " Years "
     );
     console.log();
   }
