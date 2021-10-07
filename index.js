@@ -1,13 +1,22 @@
-let args = process.argv;
+let args = process.argv.slice(2, 9);
 
 let timeTaken = 0;
 let Jackpot = false;
 let lottoNumbers = [];
 let highestScore = 0;
 
+console.log(args.toString());
+
 while (!Jackpot) {
-  for (let index = 0; index < 7; index++) {
-    lottoNumbers[index] = getRandomInt(39);
+  for (let i = 0; i < 7; i++) {
+    let randomNumber = getRandomInt(40);
+    let uniqueNumber = true;
+    for (let o = 0; o < 7; o++) {
+      uniqueNumber = lottoNumbers[o] != randomNumber;
+    }
+    if (uniqueNumber) {
+      lottoNumbers[i] = randomNumber;
+    }
     timeTaken++;
   }
 
@@ -46,7 +55,8 @@ while (!Jackpot) {
         correctNumbers +
         " correct! It took: " +
         getTimeInYears(timeTaken) +
-        " Years"
+        " Years " +
+        lottoNumbers.toString()
     );
     console.log();
   }
